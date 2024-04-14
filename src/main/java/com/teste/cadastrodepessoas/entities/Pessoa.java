@@ -1,4 +1,4 @@
-package entities;
+package com.teste.cadastrodepessoas.entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
