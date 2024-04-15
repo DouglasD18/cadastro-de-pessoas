@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <div style="text-align: center;">
+        <section>
+            <h:form>
+                <h2>
+                    <h:outputText value="Cadastrar pessoa" />
+                    <br />
+                </h2>
+
+                <p:outputLabel value="Nome  " />
+                <p:inputText value="#{pessoasRepository.pessoa.nome}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Idade  " />
+                <p:inputNumber value="#{pessoasRepository.pessoa.idade}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Sexo  ⠀⠀" />
+                <p:selectOneMenu value="#{pessoasRepository.pessoa.sexo}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItem itemLabel="Masculino" itemValue="M" />
+                    <f:selectItem itemLabel="Feminino" itemValue="F" />
+                </p:selectOneMenu>
+                <br />
+                <br />
+                <br />
+
+                <h2>
+                    <h:outputText value="Cadastrar Endereço" />
+                    <br />
+                </h2>
+
+                <p:outputLabel value="Logradouro  ⠀" />
+                <p:inputText value="#{pessoasRepository.pessoa.endereco.logradouro}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Cidade ⠀⠀⠀⠀ " />
+                <p:inputText value="#{pessoasRepository.pessoa.endereco.cidade}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Estado - UF⠀⠀" />
+                <p:inputText value="#{pessoasRepository.pessoa.endereco.estado}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Número Casa  " />
+                <p:inputNumber value="#{pessoasRepository.pessoa.endereco.numero}" />
+                <br />
+                <br />
+
+                <p:outputLabel value="Cep Endereço  " />
+                <p:inputText value="#{pessoasRepository.pessoa.endereco.cep}" />
+                <br />
+                <br />
+
+                <p:button style="width: 10%; margin: 10px" value="Voltar"
+                          href="../interfaces/InterfaceGeral.xhtml"
+                          styleClass="ui-button-raised ui-button-danger" />
+                <p:commandButton value="Cadastrar"
+                                 action="#{pessoasRepository.cadastrarPessoas()}"
+                                 href="../interfaces/InterfacePessoa.xhtml"
+                                 onclick="alert('Pessoa Cadastrada com Sucesso!')"
+                                 styleClass="ui-button-raised ui-button-success" />
+                <br />
+                <br />
+
+            </h:form>
+        </section>
+    </div>
+</h:body>
+
+</HTML>

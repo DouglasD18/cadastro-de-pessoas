@@ -34,11 +34,6 @@
           <artifactId>jakarta.faces-api</artifactId>
           <version>4.0.1</version>
       </dependency>
-      <dependency>
-          <groupId>org.jboss.weld.servlet</groupId>
-          <artifactId>weld-servlet-core</artifactId>
-          <version>5.1.2.Final</version>
-      </dependency>
 
       <dependency>
       <groupId>org.hibernate.orm</groupId>
@@ -60,7 +55,27 @@
           <artifactId>postgresql</artifactId>
           <version>42.7.3</version>
       </dependency>
-<dependency>
+      <dependency>
+          <groupId>org.antlr</groupId>
+          <artifactId>antlr4-runtime</artifactId>
+          <version>4.13.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+          <version>2.1.4</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jboss.logging</groupId>
+          <artifactId>jboss-logging</artifactId>
+          <version>3.5.3.Final</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jboss.javaee</groupId>
+          <artifactId>jboss-transaction-api</artifactId>
+          <version>1.0.1.GA</version>
+      </dependency>
+      <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.version}</version>
@@ -72,7 +87,11 @@
         <version>${junit.version}</version>
         <scope>test</scope>
       </dependency>
-
+      <dependency>
+          <groupId>javassist</groupId>
+          <artifactId>javassist</artifactId>
+          <version>3.12.1.GA</version>
+      </dependency>
       <dependency>
           <groupId>javax.faces</groupId>
           <artifactId>jsf-api</artifactId>

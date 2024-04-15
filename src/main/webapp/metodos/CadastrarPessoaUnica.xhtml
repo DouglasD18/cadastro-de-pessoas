@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<HTML lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+    <p:panel id="form01" style="border:0;">
+        <h:form>
+            <div style="text-align: center;">
+                <h2>
+                    <h:outputText value="Consultar Pessoa" />
+                </h2>
+
+                <p:outputLabel value="ID da Pessoa " />
+                <p:inputText value="#{pessoasRepository.pessoa.id}" />
+                <br /> <br />
+
+                <p:button style="width: 10%; margin: 10px" value="Voltar"
+                          href="../interfaces/InterfacePessoa.xhtml"
+                          styleClass="ui-button-raised ui-button-danger" />
+                <p:commandButton style="width: 10%" value="Consultar" update="form01"
+                                 action="#{pessoasRepository.consultarPessoasId}"
+                                 styleClass="ui-button-raised ui-button-success" />
+                <br /> <br style="margin-bottom: 20px" />
+
+            </div>
+            <p:dataTable value="#{pessoasRepository1.pessoaId}" var="c" rows="10"
+                         stripedRows="true" paginator="true" paginatorPosition="bottom"
+                         liveResize="true" draggableColumns="true" resizableColumns="true"
+                         style="width: 80%; padding-left:15%; margin-top: 20px">
+
+                <p:column headerText="Nome  " style="text-align: center">
+                    <h:outputText value="#{c.nome}" />
+                </p:column>
+
+                <p:column headerText="Idade  " style="text-align: center">
+                    <h:outputText value="#{c.idade}" />
+                </p:column>
+
+                <p:column headerText="Sexo  ⠀⠀" style="text-align: center">
+                    <h:outputText value="#{c.sexo}" />
+                </p:column>
+
+                <p:column headerText="Logradouro  ⠀" style="text-align: center">
+                    <h:outputText value="#{c.endereco.logradouro}" />
+                </p:column>
+
+                <p:column headerText="Cidade ⠀⠀⠀⠀ " style="text-align: center">
+                    <h:outputText value="#{c.endereco.cidade}" />
+                </p:column>
+
+                <p:column headerText="Estado - UF⠀⠀" style="text-align: center">
+                    <h:outputText value="#{c.endereco.estado}" />
+                </p:column>
+
+                <p:column headerText="Número Casa  " style="text-align: center">
+                    <h:outputText value="#{c.endereco.numero}" />
+                </p:column>
+
+                <p:column headerText="Cep Endereço  " style="text-align: center">
+                    <h:outputText value="#{c.endereco.cep}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </p:panel>
+
+</h:body>
+
+</HTML>
