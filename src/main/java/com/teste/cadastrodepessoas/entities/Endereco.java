@@ -10,7 +10,6 @@ public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private int id;
 
     @Column(name = "estado", nullable = false, length = 2)
@@ -69,7 +68,7 @@ public class Endereco {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {

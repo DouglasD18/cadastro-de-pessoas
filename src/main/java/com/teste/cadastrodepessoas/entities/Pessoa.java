@@ -22,6 +22,17 @@ public class Pessoa {
     @Column(name = "sexo", nullable = false, length = 1)
     private String sexo;
 
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Endereco endereco = new Endereco();
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     public String getNome() {
         return nome;
     }
