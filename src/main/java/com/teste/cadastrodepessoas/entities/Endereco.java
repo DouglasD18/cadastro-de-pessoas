@@ -1,20 +1,17 @@
 package com.teste.cadastrodepessoas.entities;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import java.util.Objects;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco implements Serializable {
+public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private int id;
 
     @Column(name = "estado", nullable = false, length = 2)
     private String estado;
@@ -30,10 +27,6 @@ public class Endereco implements Serializable {
 
     @Column(name = "cep", nullable = false, length = 8)
     private String cep;
-
-    @OneToOne
-    @JoinColumn(name = "id_pessoa")
-    private Pessoa pessoa;
 
     public String getEstado() {
         return estado;
@@ -75,19 +68,28 @@ public class Endereco implements Serializable {
         this.cep = cep;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Endereco other = (Endereco) obj;
+        return id == other.id;
+    }
+
 }

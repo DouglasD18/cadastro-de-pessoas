@@ -1,20 +1,17 @@
 package com.teste.cadastrodepessoas.entities;
 
-import jakarta.persistence.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import java.util.Objects;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pessoa")
-public class Pessoa implements Serializable {
+public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private int id;
 
     @Column(name = "nome", nullable = false, length = 150)
     private String nome;
@@ -49,11 +46,28 @@ public class Pessoa implements Serializable {
         this.sexo = sexo;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Pessoa other = (Pessoa) obj;
+        return id == other.id;
+    }
+
 }
